@@ -57,7 +57,7 @@ void TailscaleComponent::setup() {
   ESP_LOGI(TAG, "Initializing Tailscale (MicroLink)...");
 
   // Runtime PSRAM detection
-  size_t psram_size = esp_psram_get_size();
+  size_t psram_size = 0;
   if (psram_size > 0) {
     this->psram_available_ = true;
     ESP_LOGI(TAG, "PSRAM detected: %u KB - using large buffers", (unsigned)(psram_size / 1024));
