@@ -683,7 +683,7 @@ void TailscaleComponent::publish_state_() {
   this->publish_auth_key_status_();
   if (this->memory_mode_sensor_ != nullptr && this->memory_mode_sensor_->state.empty()) {
     // Memory mode never changes - publish once
-    size_t psram = esp_psram_get_size();
+    size_t psram = 0;
     if (psram > 0) {
       char buf[32];
       snprintf(buf, sizeof(buf), "PSRAM %uKB", (unsigned)(psram / 1024));
